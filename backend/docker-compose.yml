@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+  chatroombackend:
+    container_name: chatroombackend
+    image: chatroombackend
+    restart: unless-stopped
+    build: .
+    ports:
+      - '3000:3000'
+      - '3001:3001'
+    volumes:
+      - .:/home/node/chatroombackend

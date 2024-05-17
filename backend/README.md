@@ -22,6 +22,7 @@ WSS_PORT={{websocket_port}}
 JWT_SECRET_KEY={{secret_key}}
 CORS_URL={{cors}}
 DATABASE_URL={{database_connection_string}}
+DATABASE_NAME={{db_name}}
 
 # Run
 ## Locally
