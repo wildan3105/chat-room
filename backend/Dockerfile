@@ -1,14 +1,14 @@
-# Using node version 14.15.1
-FROM node:14.15.1-alpine as chatroombackend
-
-# Create app directory
-WORKDIR /chatroombackend
-
-# Install app dependencies
+FROM node:16-alpine as build
+WORKDIR /app
 COPY package*.json ./
-COPY yarn.lock ./
+RUN npm install
 COPY . .
+RUN npm run build
 
-RUN yarn install
-
-CMD ["yarn", "start"]
+FROM node:16-alpine
+WORKDIR /app
+COPY --from=build /app/dist /app/dist
+COPY --from=build /app/node_modules /app/node_modules
+COPY package*.json ./
+EXPOSE 3000 3001
+CMD ["npm", "run", "start"]

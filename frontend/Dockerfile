@@ -1,14 +1,13 @@
-# Using node version 14.15.1
-FROM node:14.15.1-alpine as chatroomfrontend
-
-# Create app directory
-WORKDIR /chatroomfrontend
-
-# Install app dependencies
+FROM node:16-alpine as build
+WORKDIR /app
 COPY package*.json ./
-COPY . .
-
 RUN npm install
+COPY . .
 RUN npm run build
 
-# RUN; TODO
+FROM node:16-alpine
+WORKDIR /app
+RUN npm install -g serve
+COPY --from=build /app/build /app/build
+EXPOSE 80
+CMD ["serve", "-s", "build", "-l", "80"]
