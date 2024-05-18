@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 
 import {
   DemoChatRoomComponents,
@@ -13,7 +12,6 @@ const ChatRoomHeaderComponent = (props: { authState: IAuthState }) => {
   const dispatch = useDispatch();
   const logout = () => {
     dispatch(authActions.logout());
-    <Redirect to="/login" />
   };
 
   return (
