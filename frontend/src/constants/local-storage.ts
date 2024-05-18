@@ -1,2 +1,2 @@
-export const DEMO_CHAT_ROOM_TOKEN = 'demochatroom.token';
-export const DEMO_CHAT_ROOM_INFO = 'demochatroom.auth';
+export const CHAT_ROOM_TOKEN = 'chatroom.token';
+export const CHAT_ROOM_INFO = 'chatroom.auth';
