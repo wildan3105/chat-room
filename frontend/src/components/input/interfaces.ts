@@ -14,6 +14,7 @@ export interface IInputProps {
   requiredMessage?: string;
   isLoading?: boolean;
   showAsterisk?: boolean;
+  autoFocus?: boolean;
 
   onChange?: (e: any, invalid?: boolean) => void;
   onKeyDown?: (e: any) => void;

@@ -57,6 +57,7 @@ export const ChatRoomInput = (props: IInputProps) => {
         onChange={onChangeValue}
         onKeyDown={onKeyDown}
         required={props.required}
+        autoFocus={props.autoFocus}
       />
       {hasError && <p className="validate-error-message">{errMessage}</p>}
     </div>

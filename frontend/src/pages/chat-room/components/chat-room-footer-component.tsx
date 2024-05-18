@@ -36,6 +36,7 @@ const ChatRoomFooterComponent = (props: {
           text={message}
           onChange={onChange}
           onKeyDown={onKeyDown}
+          autoFocus={true}
         />
         <span className="submit-message">
           <DemoChatRoomComponents.ChatRoomButton
