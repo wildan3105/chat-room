@@ -71,7 +71,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   }
 });
 
-loggerService.info('Stating db connect');
+loggerService.info('Starting db connect');
 dbConnect(DATABASE_URL);
 
 loggerService.info('Starting real time connect');
