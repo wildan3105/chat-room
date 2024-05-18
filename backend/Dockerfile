@@ -1,20 +1,14 @@
-# Use the official Node.js image
-FROM node:16-alpine
-
-# Create and change to the app directory
+FROM node:16-alpine as build
 WORKDIR /app
-
-# Copy package.json and package-lock.json
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install
-
-# Copy the rest of the application files
 COPY . .
+RUN npm run build
 
-# Expose ports for the API and WebSocket server
+FROM node:16-alpine
+WORKDIR /app
+COPY --from=build /app/dist /app/dist
+COPY --from=build /app/node_modules /app/node_modules
+COPY package*.json ./
 EXPOSE 3000 3001
-
-# Start the application
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]

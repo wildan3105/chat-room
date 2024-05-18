@@ -30,6 +30,7 @@ services:
       - mongo
     environment:
       NODE_ENV: production
+      JWT_SECRET_KEY: '@CHATROOMBACKEND'
       DATABASE_URL: mongodb://mongo:27017/db_name
       PORT: 3000
       WSS_PORT: 3001
