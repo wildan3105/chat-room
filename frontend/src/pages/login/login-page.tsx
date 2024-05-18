@@ -69,18 +69,19 @@ const HomePage = (props: { authState: IAuthState }) => {
           <DemoChatRoomComponents.ChatRoomInput
             name="username"
             onChange={(e, valid) => onChangeValue(e, valid)}
-            onKeyDown={handleKeyDown}  // Add key down handler
+            onKeyDown={handleKeyDown}
             placeholder="Username"
             class="w-100"
             required={true}
             showAsterisk={false}
+            autoFocus={true}
           />
         </div>
         <div className="mb-3">
           <DemoChatRoomComponents.ChatRoomInput
             name="roomId"
             onChange={(e, valid) => onChangeValue(e, valid)}
-            onKeyDown={handleKeyDown}  // Add key down handler
+            onKeyDown={handleKeyDown}
             class="w-100"
             placeholder="RoomID"
             required={true}
