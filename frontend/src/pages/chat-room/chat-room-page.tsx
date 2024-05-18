@@ -28,7 +28,7 @@ const RoomPage = (props: {
       chatRoomActions.getConversation(props.chatRoomState.currentPage || 1),
     );
 
-    ws.current = new WebSocket('ws://localhost:3001'); // TODO: replace this with environment variable
+    ws.current = new WebSocket(process.env.REACT_APP_BASE_WS as string);
 
     ws.current.onopen = () => {
       const data = {
