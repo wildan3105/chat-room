@@ -1,27 +1,24 @@
-// tslint:disable-next-line:no-submodule-imports
-import 'module-alias/register';
-
 import express, { Request, Response, NextFunction } from 'express';
 import helmet from 'helmet';
 import { json, urlencoded } from 'body-parser';
 import cors from 'cors';
 
-import { routes } from '../src/routes';
+import { routes } from './routes';
 import {
   CORS_URL,
   DATABASE_URL,
   ENVIRONMENT,
   PORT,
-} from '../src/config';
+} from './config';
 import {
   InternalError,
   InternalErrorResponse,
   NotFoundError,
   ResponseError,
-} from '../src/helper';
-import { dbConnect } from '../src/models';
-import { loggerService } from '../src/services';
-import { realtimeConnect } from '../src/real-time';
+} from './helper';
+import { dbConnect } from './models';
+import { loggerService } from './services';
+import { realtimeConnect } from './real-time';
 
 process.on('uncaughtException', (e) => {
   console.error(`Uncaught Exception ${JSON.stringify(e)}`);

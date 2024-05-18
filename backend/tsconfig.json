@@ -13,6 +13,9 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "baseUrl": "./src",
+    "paths": {
+      "*": ["node_modules/*", "vendor/*"]
+    },
     "noFallthroughCasesInSwitch": true
   }
 }
