@@ -27,5 +27,4 @@ DATABASE_NAME={{db_name}}
 # Run
 ## Locally
 1. Install dependencies: `npm i`
-2. Migrate (only once): `npm run migrate:up`
-3. Start the server: `npm run dev`
+2. Start the server: `npm run dev`
