@@ -3,9 +3,9 @@ import { put, takeLatest, call } from 'redux-saga/effects';
 import { crudBase, IApiResponse } from '../../helpers';
 import {
   API_END_POINTS,
-  DEMO_CHAT_ROOM_INFO,
+  CHAT_ROOM_INFO,
   axiosInstance,
-  DEMO_CHAT_ROOM_TOKEN,
+  CHAT_ROOM_TOKEN,
 } from '../../constants';
 
 
@@ -36,8 +36,8 @@ function* loginSaga(payload: any) {
     if (!res.isError) {
       axiosInstance.defaults.headers.common.auth = res.data.token;
 
-      localStorage.setItem(DEMO_CHAT_ROOM_TOKEN, res.data.token);
-      localStorage.setItem(DEMO_CHAT_ROOM_INFO, JSON.stringify(res.data.auth));
+      localStorage.setItem(CHAT_ROOM_TOKEN, res.data.token);
+      localStorage.setItem(CHAT_ROOM_INFO, JSON.stringify(res.data.auth));
 
       yield put({
         type: authConstants.LOGIN_SUCCESS,
@@ -53,7 +53,7 @@ function* loginSaga(payload: any) {
 
 function* validateTokenSaga(payload: any) {
   try {
-    const token = localStorage.getItem(DEMO_CHAT_ROOM_TOKEN) || '';
+    const token = localStorage.getItem(CHAT_ROOM_TOKEN) || '';
 
     if (!token) {
       yield put({ type: authConstants.VALIDATE_TOKEN_FAILURE });
@@ -63,9 +63,9 @@ function* validateTokenSaga(payload: any) {
       const res: IApiResponse = yield call(validateTokenService);
 
       if (!res.isError) {
-        localStorage.setItem(DEMO_CHAT_ROOM_TOKEN, res.data.token);
+        localStorage.setItem(CHAT_ROOM_TOKEN, res.data.token);
         localStorage.setItem(
-          DEMO_CHAT_ROOM_INFO,
+          CHAT_ROOM_INFO,
           JSON.stringify(res.data.auth),
         );
 
@@ -74,8 +74,8 @@ function* validateTokenSaga(payload: any) {
           data: res.data.auth,
         });
       } else {
-        localStorage.setItem(DEMO_CHAT_ROOM_TOKEN, '');
-        localStorage.setItem(DEMO_CHAT_ROOM_INFO, '');
+        localStorage.setItem(CHAT_ROOM_TOKEN, '');
+        localStorage.setItem(CHAT_ROOM_INFO, '');
 
         const message = res.message;
 
@@ -83,8 +83,8 @@ function* validateTokenSaga(payload: any) {
       }
     }
   } catch (error: any) {
-    localStorage.setItem(DEMO_CHAT_ROOM_TOKEN, '');
-    localStorage.setItem(DEMO_CHAT_ROOM_INFO, '');
+    localStorage.setItem(CHAT_ROOM_TOKEN, '');
+    localStorage.setItem(CHAT_ROOM_INFO, '');
 
     const message = error.message;
 
@@ -97,8 +97,8 @@ function* logoutSaga(payload: any) {
     const res: IApiResponse = yield call(logoutService);
 
     if (!res.isError) {
-      localStorage.removeItem(DEMO_CHAT_ROOM_TOKEN);
-      localStorage.removeItem(DEMO_CHAT_ROOM_INFO);
+      localStorage.removeItem(CHAT_ROOM_TOKEN);
+      localStorage.removeItem(CHAT_ROOM_INFO);
 
       yield put({ type: authConstants.LOGOUT_SUCCESS });
     } else {
