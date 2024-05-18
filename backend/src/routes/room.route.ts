@@ -1,8 +1,8 @@
-import { Route } from '../utilities';
+import { Route, RoutePrefix } from '../utilities';
 import { authentication } from '../middlewares';
 import { roomController } from '../controller';
 
-const baseUrl = '/room';
+const baseUrl = RoutePrefix + '/room';
 
 export const roomRoutes: Route[] = [
   {

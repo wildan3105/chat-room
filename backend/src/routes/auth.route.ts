@@ -1,8 +1,8 @@
-import { Route } from '../utilities';
+import { Route, RoutePrefix } from '../utilities';
 import { authController } from '../controller';
 import { authentication } from '../middlewares';
 
-const baseUrl = '/auth';
+const baseUrl = RoutePrefix + '/auth';
 
 export const authRoutes: Route[] = [
   {

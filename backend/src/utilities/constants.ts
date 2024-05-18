@@ -12,3 +12,5 @@ export const ModelName = {
 
 export const HEADER_TOKEN_NAME = 'token';
 export const HEADER_TOKEN_KEY_NAME = 'auth';
+
+export const RoutePrefix = '/api';
