@@ -1,0 +1,60 @@
+{
+  "name": "chatroom",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@types/react": "16.9.55",
+    "@types/react-dom": "16.9.9",
+    "@types/react-redux": "7.1.9",
+    "@types/react-router-dom": "5.1.6",
+    "axios": "0.21.0",
+    "bootstrap": "4.2.1",
+    "css-loader": "5.0.0",
+    "dotenv": "10.0.0",
+    "file-loader": "6.2.0",
+    "history": "^4.0.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-redux": "7.2.2",
+    "react-router": "5.2.0",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "5.0.1",
+    "redux": "4.0.5",
+    "redux-saga": "1.1.3",
+    "sass": "^1.77.2",
+    "sass-loader": "10.0.4",
+    "style-loader": "2.0.0",
+    "typescript": "^4.9.3",
+    "web-vitals": "0.2.4"
+  },
+  "devDependencies": {
+    "@types/history": "^4.0.0",
+    "@types/node": "14.14.6",
+    "mini-css-extract-plugin": "1.6.0",
+    "prettier": "2.1.2",
+    "source-map-loader": "1.1.2"
+  },
+  "scripts": {
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build": "npm run clean",
+    "dev": "PORT=3002 CHOKIDAR_USEPOLLING=true react-scripts --openssl-legacy-provider start",
+    "server": "node dist",
+    "clean": "rimraf ./dist"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

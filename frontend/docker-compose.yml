@@ -1,0 +1,11 @@
+version: '3.4'
+services:
+  chatroomfrontend:
+    container_name: chatroomfrontend
+    image: chatroomfrontend
+    build: .
+    ports:
+      - '80:80'
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
