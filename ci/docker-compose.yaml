@@ -4,22 +4,23 @@ services:
     container_name: chatroomfrontend
     image: chatroomfrontend
     restart: unless-stopped
-    build: ./../frontend
+    build: ../frontend
     ports:
-      - "80:80"
+      - "3002:3002"
     links:
-      - demochatroom
+      - chatroombackend
     depends_on:
-      - demochatroom
+      - chatroombackend
     environment:
       NODE_ENV: production
-      BASE_URL: <to-be-defined>
-      BASE_WS: ws://<to-be-defined>:3001
+      REACT_APP_BASE_URL: http://localhost:3000/
+      REACT_APP_BASE_WS: ws://localhost:3001
+      PORT: 3002
   chatroombackend:
     container_name: chatroombackend
     image: chatroombackend
     restart: unless-stopped
-    build: ./../backend
+    build: ../backend
     ports:
       - "3000:3000"
       - "3001:3001"
@@ -28,7 +29,11 @@ services:
     depends_on:
       - mongo
     environment:
+      NODE_ENV: production
       DATABASE_URL: mongodb://mongo:27017/db_name
+      PORT: 3000
+      WSS_PORT: 3001
+      CORS_URL: '*'
   mongo:
     container_name: mongo
     restart: unless-stopped
