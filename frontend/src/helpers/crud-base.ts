@@ -1,7 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 
 import { validate, adapter } from '../utilities';
-import { DEMO_CHAT_ROOM_INFO, axiosInstance } from '../constants';
+import { CHAT_ROOM_INFO, axiosInstance } from '../constants';
 
 const API_METHOD = {
   POST: 'POST',
@@ -24,7 +24,7 @@ interface PaginationInterface {
 }
 
 const convertObjectCamelToSnack = (body: any, isCreating = false) => {
-  const auth = localStorage.getItem(DEMO_CHAT_ROOM_INFO) || '';
+  const auth = localStorage.getItem(CHAT_ROOM_INFO) || '';
   const isJsonString = validate.isJsonString(auth);
   const user = isJsonString && JSON.parse(auth || '{}');
   const today = new Date().toISOString();
