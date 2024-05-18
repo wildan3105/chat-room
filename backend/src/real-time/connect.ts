@@ -22,6 +22,8 @@ export const realtimeConnect = () => {
     ws.on('message', (e) => {
       const data: any = JSON.parse(e?.toString() || '{}');
 
+      console.log(data);
+
       return handlerMessage(ws, data);
     });
 

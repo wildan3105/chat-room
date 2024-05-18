@@ -1,7 +1,7 @@
 import { Document } from 'mongoose';
 
 export interface BaseDto extends Document {
-  created_date: Date;
-  updated_date: Date;
+  create_date: Date;
+  update_date: Date;
   is_delete: boolean;
 }

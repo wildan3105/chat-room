@@ -38,8 +38,8 @@ const getConversation = async (
 
   const message = await MessageModel.find(filterQuery)
     .populate('user_id', '_id username')
-    .select('_id message created_date')
-    .sort({ created_date: -1 })
+    .select('_id message create_date')
+    .sort({ create_date: -1 })
     .limit(limit)
     .skip(skip);
 
@@ -51,6 +51,8 @@ const getConversation = async (
     pageSize,
     total,
   };
+
+  console.log(result);
 
   return result;
 };

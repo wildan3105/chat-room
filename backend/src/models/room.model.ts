@@ -19,8 +19,8 @@ const roomSchema: Schema = new Schema(
   },
   {
     timestamps: {
-      createdAt: 'created_date',
-      updatedAt: 'updated_date',
+      createdAt: 'create_date',
+      updatedAt: 'update_date',
     },
     collation: {
       locale: COLLATION_LOCALE,
