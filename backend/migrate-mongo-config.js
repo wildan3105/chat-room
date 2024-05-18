@@ -1,3 +1,9 @@
+const { injectEnv } = require('./src/utilities');
+// const {
+//   DATABASE_NAME
+// } = require('./src/config');
+
+injectEnv();
 
 const config = {
   mongodb: {
