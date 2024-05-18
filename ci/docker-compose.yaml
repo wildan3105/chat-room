@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     build: ../frontend
     ports:
-      - "3002:3002"
+      - "80:80"
     links:
       - chatroombackend
     depends_on:
@@ -15,7 +15,7 @@ services:
       NODE_ENV: production
       REACT_APP_BASE_URL: http://localhost:3000/
       REACT_APP_BASE_WS: ws://localhost:3001
-      PORT: 3002
+      PORT: 80
   chatroombackend:
     container_name: chatroombackend
     image: chatroombackend

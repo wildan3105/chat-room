@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Expose ports for the API and WebSocket server
-EXPOSE 3002
+EXPOSE 80
 
 # Start the application
 CMD ["npm", "run", "dev"]
