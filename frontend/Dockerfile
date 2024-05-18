@@ -1,14 +1,20 @@
-# Using node version 14.15.1
-FROM node:14.15.1-alpine as chatroomfrontend
+# Use the official Node.js image
+FROM node:16-alpine
 
-# Create app directory
-WORKDIR /chatroomfrontend
+# Create and change to the app directory
+WORKDIR /app
 
-# Install app dependencies
+# Copy package.json and package-lock.json
 COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application files
 COPY . .
 
-RUN npm install
-RUN npm run build
+# Expose ports for the API and WebSocket server
+EXPOSE 3002
 
-# RUN; TODO
+# Start the application
+CMD ["npm", "run", "dev"]

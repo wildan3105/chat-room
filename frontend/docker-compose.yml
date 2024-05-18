@@ -1,11 +1,11 @@
-version: '3.4'
+version: '3.8'
+
 services:
-  chatroomfrontend:
-    container_name: chatroomfrontend
-    image: chatroomfrontend
+  chat-room-frontend:
     build: .
     ports:
-      - '80:80'
-    restart: unless-stopped
+      - "80:80"
+      - "3002:3002"
     environment:
-      NODE_ENV: production
+      - BASE_URL=http://localhost:3000/
+      - BASE_WS=ws://localhost:3001
