@@ -20,10 +20,10 @@ module.exports = {
             message: {
               bsonType: 'string',
             },
-            create_date: {
+            created_date: {
               bsonType: 'date',
             },
-            update_date: {
+            updated_date: {
               bsonType: 'date',
             },
             is_delete: {

@@ -1,0 +1,11 @@
+@mixin calc($property, $expression, $imp: false) {
+  @if $imp {
+    #{$property}: -moz-calc(#{$expression}) !important;
+    #{$property}: -webkit-calc(#{$expression}) !important;
+    #{$property}: calc(#{$expression}) !important;
+  } @else {
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+  }
+}

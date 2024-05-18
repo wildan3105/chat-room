@@ -1,0 +1,42 @@
+@import '../../assets/variables';
+
+.message-box {
+  position: relative;
+  padding: 0.6375rem;
+  width: 75%;
+
+  &:after {
+    top: 100%;
+    border: solid transparent;
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-width: 20px;
+  }
+
+  &.message-box-author {
+    background: $primary-color;
+    border-radius: 0.5875rem 0.5875rem 0.5875rem 0;
+
+    &:after {
+      border-top-color: $primary-color;
+      left: 0%;
+      margin-left: -20px;
+    }
+  }
+
+  &.message-box-me {
+    left: 25%;
+    background: $light-color;
+    border: 1px solid $secondary-color;
+    border-radius: 0.5875rem 0.5875rem 0 0.5875rem;
+
+    &:after {
+      border-top-color: $light-color;
+      right: 0%;
+      margin-right: -20px;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import '../../assets/variables';
+
+.demo-chat-room-input {
+  .input {
+    width: 300px;
+    background-color: $light-color;
+    border: 1px solid $secondary-color;
+    padding: 0.6375rem;
+    border-radius: 0.5rem;
+
+    &:focus,
+    &:hover {
+      outline: none;
+    }
+  }
+
+  .validate-error-message {
+    color: $danger-color;
+    font-style: italic;
+  }
+}

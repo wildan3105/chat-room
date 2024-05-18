@@ -30,8 +30,8 @@ const userSchema: Schema = new Schema(
   },
   {
     timestamps: {
-      createdAt: 'create_date',
-      updatedAt: 'update_date',
+      createdAt: 'created_date',
+      updatedAt: 'updated_date',
     },
     collation: {
       locale: COLLATION_LOCALE,

@@ -1,0 +1,24 @@
+@import '../../assets/variables';
+
+.demo-chat-room-button {
+  box-shadow: none !important;
+  padding: 0.6375rem;
+
+  &.btn-link {
+    color: $primary-color !important;
+  }
+}
+
+.btn-primary {
+  color: $light-color !important;
+  background-color: $primary-color !important;
+  border: none;
+
+  &:focus,
+  &:active,
+  &:disabled,
+  &:hover {
+    background-color: rgba($primary-color, 0.5) !important;
+    outline: none;
+  }
+}
