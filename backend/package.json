@@ -7,9 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev --poll --transpile-only --respawn src/index.ts --watch src/index.ts",
     "prettier": "prettier --write --config ./.prettierrc './src/**/*.{ts,tsx}'",
-    "start": "tsc && node -r dotenv/config dist/index.js",
     "build": "npm run clean &  tsc -p .",
-    "build:run": "node dist/index.js",
+    "start": "node dist/index.js",
     "clean": "rimraf ./dist",
     "migrate:up": "migrate-mongo up",
     "migrate:down": "migrate-mongo down"
@@ -17,18 +16,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "_moduleAliases": {
-    "@chatroombackend/config": "dist/config/index",
-    "@chatroombackend/controller": "dist/controller/index",
-    "@chatroombackend/dto": "dist/dto/index",
-    "@chatroombackend/helper": "dist/helper/index",
-    "@chatroombackend/models": "dist/models/index",
-    "@chatroombackend/routes": "dist/routes/index",
-    "@chatroombackend/services": "dist/services/index",
-    "@chatroombackend/utilities": "dist/utilities/index",
-    "@chatroombackend/middlewares": "dist/middlewares/index",
-    "@chatroombackend/real-time": "dist/real-time/index"
-  },
   "devDependencies": {
     "@types/express": "4.17.8",
     "date-fns": "^3.6.0",
