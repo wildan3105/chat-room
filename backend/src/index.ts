@@ -24,28 +24,13 @@ process.on('uncaughtException', (e) => {
   console.error(`Uncaught Exception ${JSON.stringify(e)}`);
 });
 
-const allowedOrigins = [`${CORS_URL}`];
-
 const app = express();
 
 app.use(json({ limit: '10mb' }));
 app.use(urlencoded({ limit: '10mb', extended: true, parameterLimit: 50000 }));
 app.use(helmet());
 
-app.use(cors({
-  // TODO: register/load the URL in the env
-  origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) {
-      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  },
-  optionsSuccessStatus: 200,
-  credentials: true,
-}));
+app.use(cors({ origin: CORS_URL, optionsSuccessStatus: 200 }));
 
 routes.forEach((route) => {
   const { method, path, middleware, handler } = route;
