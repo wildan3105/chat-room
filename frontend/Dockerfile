@@ -3,6 +3,8 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
+ARG REACT_APP_BASE_URL
+ARG REACT_APP_BASE_WS
 RUN npm run build
 
 FROM node:16-alpine
