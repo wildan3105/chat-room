@@ -17,8 +17,6 @@ services:
       - chatroombackend
     environment:
       NODE_ENV: production
-      REACT_APP_BASE_URL: http://localhost:3000/
-      REACT_APP_BASE_WS: ws://localhost:3001
       PORT: 80
   chatroombackend:
     container_name: chatroombackend
