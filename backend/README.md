@@ -2,11 +2,6 @@
 
 Backend API for chat room
 
-# Features
-- auth
-- room
-- chat
-
 # Set up
 
 ```
@@ -14,17 +9,15 @@ npm install
 ```
 
 # Environment
-
-NODE_ENV={{environment_name}}
-PORT={{api_port}}
-WSS_PORT={{websocket_port}}
-
-JWT_SECRET_KEY={{secret_key}}
-CORS_URL={{cors}}
-DATABASE_URL={{database_connection_string}}
-DATABASE_NAME={{db_name}}
+Copy everything from [.env.example](.env.example) and adjust to your own `.env` file
 
 # Run
-## Locally
-1. Install dependencies: `npm i`
-2. Start the server: `npm run dev`
+## Locally using typescript
+Start the server: `npm run dev` (ensure you have `ts-node-dev` installed globally)
+
+## Locally using javascript
+1. Build the project first: `npm run build`
+2. Run the JS file: `npm run start`
+
+## Locally using docker
+1. Build and run the application: `docker-compose up --build`
