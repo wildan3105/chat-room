@@ -3,9 +3,11 @@
 .demo-chat-room-button {
   box-shadow: none !important;
   padding: 0.6375rem;
+  cursor: pointer;
 
   &.btn-link {
     color: $primary-color !important;
+    cursor: pointer;
   }
 }
 
@@ -13,6 +15,7 @@
   color: $light-color !important;
   background-color: $primary-color !important;
   border: none;
+  cursor: pointer;
 
   &:focus,
   &:active,
