@@ -53,19 +53,19 @@ Roughly around 20 hours
 - **compromise**: use simple JSON web token mechanism to create and validate token
 - **improvement**: apart from JSON web token for stateless authentication, we could also potentially use OAuth for 3rd party integrations and store the password for enhanced security since currently anyone can be "everyone" to join room.
 
-1. Error handling and validation
+2. Error handling and validation
 - **compromise**: basic error handling and validation for username uniqueness and form inputs
 - **improvement**: use more structured and comprehensive schema and API-driven tool such as open API specification (OAS) to enforce consistency and avoid manual error code generation and validation. this will ensure data integrity and provide detailed feedback to end-users.
 
-1. Scalability and performance
+3. Scalability and performance
 - **compromise**: focused on a single server deployment, potentially limiting scalability
 - **improvement**: design the application with scalability in mind i.e. using microservices architecture, load balancing, and horizontal scaling. deploy using k8s other similar tools for better orchestration and manageability of services as they scales.
 
-1. Security
+4. Security
 - **compromise**: only basic security measures are implemented. even CORS are enabled for all sites (*)
 - **improvement**: implement comprehensive, rigid, and zero-trust security model. for concrete improvements, we could enforce HTTPS for secure communication, rate limiting to prevent abuse, sanitizing the inputs to prevent XSS attacks, and many more.
 
-1. Testing
+5. Testing
 - **compromise**: no programmable tests are implemented. only manual testing due to time constraints.
 - **improvement**: implement multi-level of testing (from unit, component, integration, and E2E) to ensure application's robustness and reduces the likelihood of bugs in production as well as allow other engineers contribute to the project easily and confidently.
 
