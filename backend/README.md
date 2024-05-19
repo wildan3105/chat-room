@@ -13,7 +13,7 @@ Copy everything from [.env.example](.env.example) and adjust to your own `.env` 
 
 # Run
 ## Locally using typescript
-Start the server: `npm run dev` (ensure you have `ts-node-dev` installed globally)
+Start the server: `npm run dev` (ensure you have [`ts-node-dev`](https://www.npmjs.com/package/ts-node-dev) installed globally)
 
 ## Locally using javascript
 1. Build the project first: `npm run build`
