@@ -29,33 +29,33 @@ Roughly around 20 hours
 
 ## Assumption
 1. User authentication and authorization
-- **assumption**: user auth will be relatively simple: use JSON webtoken to create and validate user session that's valid for up to 1 hour for each user signing to certain room (a signed token translates to `userId-roomId`)
+- **assumption**: user auth is relatively simple: use JSON webtoken to create and validate user session that's valid for up to 1 hour for each user signing to a certain room (a signed token translates to `userId-roomId`)
 - **justification**: JSON web token implementation is quite simple and thus achievable given the time limit and also aligns with the requirement (unique username within a room)
 
 2. Real-time communication
-- **assumption**: websocket will be used for real-time communication between frontend and backend
+- **assumption**: websocket is used for real-time communication between frontend and backend
 - **justification**: websocket provide a full-duplex (2-way) communication channel over a single TCP connection, making it ideal for real-time messaging. this ensures messages from other users are received in real-time as required.
 
 3. Database structure
-- **assumption**: MongoDB collections will be structure to store rooms, users, and messages.
-- **justification**: MongoDB is schema-less, flexible, and scales well with real-time applications. separate collections for rooms, users, and messages help in organizing data efficiently and ensure persistence of messages for each room. 
+- **assumption**: MongoDB collections to store rooms, users, and messages.
+- **justification**: MongoDB is schema-less, flexible, and scales well with real-time applications. separate collections for rooms, users, and messages help in organizing data efficiently and ensure the persistence of messages for each room. 
 
 4. Concurrency handling
 - **assumption**: simple checks will be performed (upon login) to ensure unique usernames within a room.
 - **justification**: this aligns with the requirement that no two users in the same room can have the same exact username.
 
 5. Deployment
-- **assumption**: the app is bundled into one and can be deployed in single server or a local machine
-- **justification**: there's no deployment details from the requirement, so using a bundled app will simplify the setup process and allow focusing more on core functionality.
+- **assumption**: the app is bundled into one and can be deployed in a single server or a local machine
+- **justification**: there's no deployment details from the requirement, so using a bundled app will simplify the setup process and allow focus more on core functionality.
 
 ## Compromises
 1. Authentication and authorization
-- **compromise**: use simple JSON web token mechanism to create and validate token
-- **improvement**: apart from JSON web token for stateless authentication, we could also potentially use OAuth for 3rd party integrations and store the password for enhanced security since currently anyone can be "everyone" to join room.
+- **compromise**: use a simple JSON web token mechanism to create and validate the token
+- **improvement**: apart from JSON web token for stateless authentication, we could also potentially use OAuth for 3rd party integrations and store the password for enhanced security since currently anyone can be "everyone" to join the room.
 
 2. Error handling and validation
 - **compromise**: basic error handling and validation for username uniqueness and form inputs
-- **improvement**: use more structured and comprehensive schema and API-driven tool such as open API specification (OAS) to enforce consistency and avoid manual error code generation and validation. this will ensure data integrity and provide detailed feedback to end-users.
+- **improvement**: use more structured and comprehensive schema and API-driven tools such as open API specification (OAS) to enforce consistency and avoid manual error code generation and validation. this will ensure data integrity and provide detailed feedback to end-users.
 
 3. Scalability and performance
 - **compromise**: focused on a single server deployment, potentially limiting scalability
@@ -63,23 +63,23 @@ Roughly around 20 hours
 
 4. Security
 - **compromise**: only basic security measures are implemented. even CORS are enabled for all sites (*)
-- **improvement**: implement comprehensive, rigid, and zero-trust security model. for concrete improvements, we could enforce HTTPS for secure communication, rate limiting to prevent abuse, sanitizing the inputs to prevent XSS attacks, and many more.
+- **improvement**: implement a comprehensive, rigid, and zero-trust security model. For concrete improvements, we could enforce HTTPS for secure communication, rate limiting to prevent abuse, sanitize the inputs to prevent XSS attacks, and many more.
 
 5. Testing
 - **compromise**: no programmable tests are implemented. only manual testing due to time constraints.
-- **improvement**: implement multi-level of testing (from unit, component, integration, and E2E) to ensure application's robustness and reduces the likelihood of bugs in production as well as allow other engineers contribute to the project easily and confidently.
+- **improvement**: implement multi-level of testing (from unit, component, integration, and E2E) to ensure the application's robustness and reduce the likelihood of bugs in production as well as allow other engineers to contribute to the project easily and confidently.
 
 ## Production plan
 1. Production-ready plan
-- **refactor and clean code**: ensure codebase follows the best practices, is well-documented, and is free of unnecessary code. this applies for both backend and frontend
+- **refactor and clean code**: ensure the codebase follows the best practices, is well-documented, and is free of unnecessary code. this applies for both backend and frontend
 - **comprehensive testing**: implement multi-level of testing: unit, integration, component, E2E. also, use automated testing tools in CI/CD pipelines
-- **optimize database**: design efficient database schema and use indexes where appropiate. perform load testing to identify and resolve bottlenecks.
-- **API rate limit**: implement rate limiting to prevenf abuse of API endpoints, especially burst of potential spam messages from certain user
-- **logging and monitoring**: integrate with logging tools, setup comprehensive monitoring tool to detect issues early and measure app performance
+- **optimize database**: design efficient database schema and use indexes where appropriate. perform load testing to identify and resolve bottlenecks.
+- **API rate limit**: implement rate limiting to prevent abuse of API endpoints, especially bursts of potential spam messages from certain user
+- **logging and monitoring**: integrate with logging tools, set comprehensive monitoring tool to detect issues early and measure app performance
 - **containerization**: use docker to containerize the application (this is done) to maintain consistency across development, staging, and production environment
 - **CI/CD pipeline**: setup a CI/CD tool to automate testing, building, and deployment
 - **load balancing**: use load balancers like nginx or AWS elastic load balancing to distribute traffic across multiple instances of the application
-- **CDN**: use a content delivery network (CDN) like cloudflare or AWS cloudfront to serve static assets quickly to users globally
+- **CDN**: use a content delivery network (CDN) like Cloudflare or AWS Cloudfront to serve static assets quickly to users globally
 
 2. Handle thousands of users simultaneously
 
@@ -97,7 +97,7 @@ Roughly around 20 hours
 - **regular security audits**: Perform regular security audits and penetration testing to identify and address vulnerabilities.
 - **dependency management**: Keep dependencies up to date and use tools like Snyk, Dependabot, or npm audit to identify and fix security vulnerabilities in third-party libraries.
 - **input validation and sanitization**: Validate and sanitize all inputs to prevent SQL injection, XSS, and other injection attacks.
-- **rate limithing and throttling**: Implement rate limiting and throttling to prevent abuse of APIs.
+- **rate limiting and throttling**: Implement rate limiting and throttling to prevent abuse of APIs.
 - **CORS policies**: Configure CORS (Cross-Origin Resource Sharing) policies to allow only trusted domains to access the API.
 
 ## Other notes
