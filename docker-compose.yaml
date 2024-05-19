@@ -4,7 +4,7 @@ services:
     container_name: chatroomfrontend
     image: chatroomfrontend
     restart: unless-stopped
-    build: ../frontend
+    build: ./frontend
     ports:
       - "80:80"
     links:
@@ -20,7 +20,7 @@ services:
     container_name: chatroombackend
     image: chatroombackend
     restart: unless-stopped
-    build: ../backend
+    build: ./backend
     ports:
       - "3000:3000"
       - "3001:3001"
