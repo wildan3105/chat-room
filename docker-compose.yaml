@@ -1,9 +1,6 @@
 version: "3.4"
 services:
   chatroomfrontend:
-    container_name: chatroomfrontend
-    image: chatroomfrontend
-    restart: unless-stopped
     build: 
       context: ./frontend
       args:
@@ -19,31 +16,28 @@ services:
       NODE_ENV: production
       PORT: 80
   chatroombackend:
-    container_name: chatroombackend
-    image: chatroombackend
-    restart: unless-stopped
     build: ./backend
     ports:
       - "3000:3000"
       - "3001:3001"
     links:
-      - mongo
+      - mongodb
     depends_on:
-      - mongo
+      - mongodb
     environment:
       NODE_ENV: production
       JWT_SECRET_KEY: '@CHATROOMBACKEND'
-      DATABASE_URL: mongodb://mongo:27017/db_name
+      DATABASE_URL: mongodb://mongodb:27017/dbname
       PORT: 3000
       WSS_PORT: 3001
       CORS_URL: '*'
-  mongo:
-    container_name: mongo
-    restart: unless-stopped
-    image: mongo
+  
+  mongodb:
+    image: mongo:4.4
     ports:
       - "27017:27017"
     volumes:
-      - dbdata:/data/mongo
+      - mongo-data:/data/db
+
 volumes:
-  dbdata:
+  mongo-data:
