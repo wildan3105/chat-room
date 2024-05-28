@@ -59,6 +59,10 @@ const updateConversationFailure = () => {
   };
 };
 
+export const clearConversation = () => ({
+  type: chatRoomConstants.CLEAR_CONVERSATION,
+});
+
 export const chatRoomActions = {
   submitMessage,
   submitMessageSuccessfully,
@@ -66,6 +70,7 @@ export const chatRoomActions = {
   getConversation,
   getConversationSuccessfully,
   getConversationFailure,
+  clearConversation,
   updateConversation,
   updateConversationSuccessfully,
   updateConversationFailure,
