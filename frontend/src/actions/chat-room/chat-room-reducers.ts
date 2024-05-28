@@ -65,6 +65,16 @@ export default function chatRoomReducers(
         isLoading: false,
       };
     }
+
+    case chatRoomConstants.CLEAR_CONVERSATION: {
+      return {
+        ...state,
+        conversation: [],
+        currentPage: undefined,
+        total: 0,
+      };
+    }
+    
     default:
       return state;
   }

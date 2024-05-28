@@ -9,7 +9,6 @@ import {
   IChatRoomState,
 } from '../../actions';
 
-
 import { ChatRoomComponents } from './components';
 import './chat-room-page.scss';
 
@@ -24,15 +23,23 @@ const RoomPage = (props: {
   const messagesEndRef = useRef<null | HTMLDivElement>(null);
 
   useEffect(() => {
+    const { roomId } = props.authState.data || {};
+    if (!roomId) return;
+
+    // Clear the conversation state
+    dispatch(chatRoomActions.clearConversation());
+
+    // Fetch the initial conversation
     dispatch(
-      chatRoomActions.getConversation(props.chatRoomState.currentPage || 1),
+      chatRoomActions.getConversation(1),
     );
 
+    // Initialize WebSocket
     ws.current = new WebSocket(process.env.REACT_APP_BASE_WS as string);
 
     ws.current.onopen = () => {
       const data = {
-        roomId: props.authState.data?.roomId,
+        roomId,
         action: 'open-connection',
       };
 
@@ -41,7 +48,7 @@ const RoomPage = (props: {
 
     ws.current.onclose = () => {
       const data = {
-        roomId: props.authState.data?.roomId,
+        roomId,
         action: 'close-connection',
       };
 
@@ -70,8 +77,9 @@ const RoomPage = (props: {
 
     return () => {
       wsCurrent.close();
+      dispatch(chatRoomActions.clearConversation());
     };
-  }, []);
+  }, [props.authState.data?.roomId]);
 
   useEffect(() => {
     if (
