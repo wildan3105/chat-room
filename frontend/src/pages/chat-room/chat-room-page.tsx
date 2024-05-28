@@ -26,15 +26,12 @@ const RoomPage = (props: {
     const { roomId } = props.authState.data || {};
     if (!roomId) return;
 
-    // Clear the conversation state
     dispatch(chatRoomActions.clearConversation());
 
-    // Fetch the initial conversation
     dispatch(
       chatRoomActions.getConversation(1),
     );
 
-    // Initialize WebSocket
     ws.current = new WebSocket(process.env.REACT_APP_BASE_WS as string);
 
     ws.current.onopen = () => {
